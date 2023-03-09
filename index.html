@@ -10,13 +10,15 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
     
-    <style>    
+<style>    
+
     #cities {
     text-align: center;
     margin-top: 50px;
     font-size: 16px;
     }
-    </style>
+
+</style>
 </head>
 
 <body>
@@ -30,7 +32,18 @@
     </div>
 </body>
 <script>
+     function showTimeDate(event) {
+         if (event.target.value.length > 0) {
+             let currentTime = moment()
+                 .tz(event.target.value)
+                 .format("dddd, MMMM Do, YYYY h:mm A");
 
+             alert(`It's ${currentTime} in ${event.target.value}.`);
+         }
+      }
+
+  let selectElement = document.querySelector("#cities");
+  selectElement.addEventListener("change", showTimeDate);
 </script>
 
 </html>
